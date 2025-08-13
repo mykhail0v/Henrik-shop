@@ -1,0 +1,337 @@
+@font-face {
+    font-family: "Inter";
+    src: url("./fonts/Inter28pt-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: url("./fonts/Inter28pt-Medium.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+/**
+  Нормализация блочной модели
+ */
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+/**
+  Убираем внутренние отступы слева тегам списков,
+  у которых есть атрибут class
+ */
+:where(ul, ol):where([class]) {
+  padding-left: 0;
+}
+
+/**
+  Убираем внешние отступы body и двум другим тегам,
+  у которых есть атрибут class
+ */
+body,
+:where(blockquote, figure, fieldset):where([class]) {
+  margin: 0;
+}
+
+
+
+/**
+  Убираем внешние отступы вертикали нужным тегам,
+  у которых есть атрибут class
+ */
+:where(
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  ul,
+  ol,
+  dl
+):where([class]) {
+  margin-block: 0;
+}
+
+:where(dd[class]) {
+  margin-left: 0;
+}
+
+:where(fieldset[class]) {
+  padding: 0;
+  border: none;
+}
+
+/**
+  Убираем стандартный маркер маркированному списку,
+  у которого есть атрибут class
+ */
+:where(ul[class]) {
+  list-style: none;
+}
+
+:where(address[class]) {
+  font-style: normal;
+}
+
+/**
+  Обнуляем вертикальные внешние отступы параграфа,
+  объявляем локальную переменную для внешнего отступа вниз,
+  чтобы избежать взаимодействие с более сложным селектором
+ */
+p {
+  --paragraphMarginBottom: 24px;
+
+  margin-block: 0;
+}
+
+/**
+  Внешний отступ вниз для параграфа без атрибута class,
+  который расположен не последним среди своих соседних элементов
+ */
+p:where(:not([class]):not(:last-child)) {
+  margin-bottom: var(--paragraphMarginBottom);
+}
+
+
+/**
+  Упрощаем работу с изображениями и видео
+ */
+img,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/**
+  Наследуем свойства шрифт для полей ввода
+ */
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+html {
+  /**
+    Пригодится в большинстве ситуаций
+    (когда, например, нужно будет "прижать" футер к низу сайта)
+   */
+  height: 100%;
+  /**
+    Убираем скачок интерфейса по горизонтали
+    при появлении / исчезновении скроллбара
+   */
+  scrollbar-gutter: stable;
+}
+
+/**
+  Плавный скролл
+ */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  /**
+    Пригодится в большинстве ситуаций
+    (когда, например, нужно будет "прижать" футер к низу сайта)
+   */
+  min-height: 100%;
+  /**
+    Унифицированный интерлиньяж
+   */
+  line-height: 1.5;
+}
+
+/**
+  Нормализация высоты элемента ссылки при его инспектировании в DevTools
+ */
+a:where([class]) {
+  display: inline-flex;
+}
+
+/**
+  Курсор-рука при наведении на элемент
+ */
+button,
+label {
+  cursor: pointer;
+}
+
+/**
+  Приводим к единому цвету svg-элементы
+  (за исключением тех, у которых уже указан
+  атрибут fill со значением 'none' или начинается с 'url')
+ */
+:where([fill]:not(
+  [fill="none"],
+  [fill^="url"]
+)) {
+  fill: currentColor;
+}
+
+/**
+  Приводим к единому цвету svg-элементы
+  (за исключением тех, у которых уже указан
+  атрибут stroke со значением 'none')
+ */
+:where([stroke]:not(
+  [stroke="none"],
+  [stroke^="url"]
+)) {
+  stroke: currentColor;
+}
+
+/**
+  Чиним баг задержки смены цвета при взаимодействии с svg-элементами
+ */
+svg * {
+  transition-property: fill, stroke;
+}
+
+/**
+  Приведение рамок таблиц в классический 'collapse' вид
+ */
+:where(table) {
+  border-collapse: collapse;
+  border-color: currentColor;
+}
+
+/**
+  Удаляем все анимации и переходы для людей,
+  которые предпочитают их не использовать
+ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+:root {
+    --color-dark: #000;
+    --color-light: #fff;
+
+    --border-radius: 55px;
+    --border: 1px solid #000;
+    --font-family: "Inter", sans-serif;
+
+    --transition-duration: 0.2s;
+}
+
+body {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 1.35;
+    color: var(--color-dark);
+    background-color: var(--color-light);
+}
+
+a, 
+button,
+textarea,
+svg * {
+    text-decoration: var(--transition-duration);
+}
+
+a:visited {
+    color: var(--color-dark);
+}
+
+.container {
+    max-width: 1730px;
+    margin: 0 auto;
+    padding: 0 20px; 
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding: 33.5px 0;
+    border-bottom: 1px solid #000;
+
+}
+
+.header__logo {
+    display: flex;
+    gap: 7px;
+}
+
+.header__logo__title {
+    color: var(--color-dark);
+    font-size: 19px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 29px; /* 152.632% */
+    text-transform: uppercase;
+
+}
+
+.header__menu__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 35px;
+}
+
+.header__menu__item {
+    color: var(--color-dark);
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 26px;
+    letter-spacing: -0.3px;
+
+}
+
+.header__info{
+    color: var(--color-dark);
+    text-transform: uppercase;
+    font-size: 19px;
+    font-style: normal;
+        vertical-align: middle;
+
+}
+
+.header__info::after {
+    content: "";
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+    background-image: url(icons/black-circle.svg);
+    background-size: cover;
+    margin-left: 7px;
+    transform: translateY(-1px);
+}
+
+.header__menu__link.is-current {
+  position: relative; /* Это важно! Позволяет позиционировать псевдоэлемент относительно ссылки */
+}
+
+.header__menu__link.is-current::after {
+  content: ''; /* Обязательное свойство для псевдоэлемента */
+  position: absolute;
+  top: 87%; /* Отступ от текста вниз, можешь настроить */
+  left: 50%; /* Начинаем подчёркивание с центра */
+  transform: translateX(-50%); /* Сдвигаем на половину своей ширины влево, чтобы центрировать */
+  width: 100%; /* Ширина подчёркивания */
+  height: 1px; /* Толщина подчёркивания */
+  background-color: #000; /* Цвет */
+}
+
