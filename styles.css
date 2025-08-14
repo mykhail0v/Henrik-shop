@@ -270,6 +270,19 @@ a:hover {
     padding: 0 20px; 
 }
 
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  border: 0 !important;
+  padding: 0 !important;
+  white-space: nowrap !important;
+  clip-path: inset(100%) !important;
+  clip: rect(0 0 0 0) !important;
+  overflow: hidden !important;
+}
+
 .header {
     display: flex;
     align-items: center;
@@ -287,7 +300,7 @@ a:hover {
     gap: 7px;
 }
 
-.header__logo__title {
+.header__logo-title {
     color: var(--color-dark);
     font-size: 19px;
     font-style: normal;
@@ -297,14 +310,14 @@ a:hover {
 
 }
 
-.header__menu__list {
+.header__menu-list {
     display: flex;
     flex-wrap: wrap;
     column-gap: 35px;
     
 }
 
-.header__menu__link {
+.header__menu-link {
     display: inline-flex;
     height: var(--header-height);
     align-items: center;
@@ -317,11 +330,11 @@ a:hover {
 
 }
 
-.header__menu__link.is-current {
+.header__menu-link.is-current {
   position: relative; /* Это важно! Позволяет позиционировать псевдоэлемент относительно ссылки */
 }
 
-.header__menu__link.is-current::after {
+.header__menu-link.is-current::after {
   content: ''; /* Обязательное свойство для псевдоэлемента */
   position: absolute;
   top: 59%; /* Отступ от текста вниз, можешь настроить */
@@ -332,11 +345,11 @@ a:hover {
   background-color: #000; /* Цвет */
 }
 
-.header__menu__link.is-current:hover::after {
+.header__menu-link.is-current:hover::after {
     background-color: gray;
 }
 
-.header__menu__item {
+.header__menu-item {
 
 
 }
@@ -381,16 +394,16 @@ a:hover {
     }
 
 
-    .header__menu__list {
+    .header__menu-list {
         gap: 15px;
         margin: 0 5px;
     }
 
-    .header__menu__link {
+    .header__menu-link {
         height: 40px;
     }
 
-    .header__menu__link.is-current::after {
+    .header__menu-link.is-current::after {
     top: 70%;
     }
 
