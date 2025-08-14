@@ -367,9 +367,13 @@ a:hover {
 
 
 @media (max-width: 750px) {
+    .container {
+    padding: 0 15px;
+    }
 
     .header {
         height: auto;
+        padding-top: 15px;
     }
     .header__menu {
         order: 1;
