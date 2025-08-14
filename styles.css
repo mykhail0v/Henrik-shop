@@ -231,6 +231,8 @@ svg * {
     --border: 1px solid #000;
     --font-family: "Inter", sans-serif;
 
+    --header-height: 96px;
+
     --transition-duration: 0.2s;
 }
 
@@ -245,13 +247,21 @@ body {
 
 a, 
 button,
+input,
 textarea,
 svg * {
-    text-decoration: var(--transition-duration);
+    transition-duration: var(--transition-duration);
 }
 
+a{
+    text-decoration: none;
+}
 a:visited {
     color: var(--color-dark);
+}
+
+a:hover {
+    color: gray;
 }
 
 .container {
@@ -262,9 +272,12 @@ a:visited {
 
 .header {
     display: flex;
+    align-items: center;
+    flex-wrap: wrap;
     justify-content: space-between;
     position: relative;
-    padding: 33.5px 0;
+    height: var(--header-height);
+    /* padding: 33.5px 0; */
     border-bottom: 1px solid #000;
 
 }
@@ -287,16 +300,44 @@ a:visited {
 .header__menu__list {
     display: flex;
     flex-wrap: wrap;
-    gap: 35px;
+    column-gap: 35px;
+    
 }
 
-.header__menu__item {
+.header__menu__link {
+    display: inline-flex;
+    height: var(--header-height);
+    align-items: center;
     color: var(--color-dark);
     text-transform: uppercase;
     font-size: 15px;
     font-weight: 500;
     line-height: 26px;
     letter-spacing: -0.3px;
+
+}
+
+.header__menu__link.is-current {
+  position: relative; /* Это важно! Позволяет позиционировать псевдоэлемент относительно ссылки */
+}
+
+.header__menu__link.is-current::after {
+  content: ''; /* Обязательное свойство для псевдоэлемента */
+  position: absolute;
+  top: 59%; /* Отступ от текста вниз, можешь настроить */
+  left: 50%; /* Начинаем подчёркивание с центра */
+  transform: translateX(-50%); /* Сдвигаем на половину своей ширины влево, чтобы центрировать */
+  width: 100%; /* Ширина подчёркивания */
+  height: 1px; /* Толщина подчёркивания */
+  background-color: #000; /* Цвет */
+}
+
+.header__menu__link.is-current:hover::after {
+    background-color: gray;
+}
+
+.header__menu__item {
+
 
 }
 
@@ -320,18 +361,34 @@ a:visited {
     transform: translateY(-1px);
 }
 
-.header__menu__link.is-current {
-  position: relative; /* Это важно! Позволяет позиционировать псевдоэлемент относительно ссылки */
-}
 
-.header__menu__link.is-current::after {
-  content: ''; /* Обязательное свойство для псевдоэлемента */
-  position: absolute;
-  top: 87%; /* Отступ от текста вниз, можешь настроить */
-  left: 50%; /* Начинаем подчёркивание с центра */
-  transform: translateX(-50%); /* Сдвигаем на половину своей ширины влево, чтобы центрировать */
-  width: 100%; /* Ширина подчёркивания */
-  height: 1px; /* Толщина подчёркивания */
-  background-color: #000; /* Цвет */
+
+
+
+
+@media (max-width: 750px) {
+
+    .header {
+        height: auto;
+    }
+    .header__menu {
+        order: 1;
+        flex-basis: 100%;
+    }
+
+
+    .header__menu__list {
+        gap: 15px;
+        margin: 0 5px;
+    }
+
+    .header__menu__link {
+        height: 40px;
+    }
+
+    .header__menu__link.is-current::after {
+    top: 70%;
+    }
+
 }
 
