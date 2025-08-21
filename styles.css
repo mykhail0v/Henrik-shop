@@ -245,6 +245,13 @@ body {
     background-color: var(--color-light);
 }
 
+button {
+    all: unset;
+    display: flex;
+    align-items: center;
+}
+
+
 a, 
 button,
 input,
@@ -253,6 +260,7 @@ svg * {
     transition-duration: var(--transition-duration);
 }
 
+
 a{
     text-decoration: none;
 }
@@ -260,9 +268,7 @@ a:visited {
     color: var(--color-dark);
 }
 
-a:hover {
-    color: gray;
-}
+
 
 .container {
     max-width: 1730px;
@@ -332,6 +338,7 @@ a:hover {
 
 .header__menu-link.is-current {
   position: relative; /* Это важно! Позволяет позиционировать псевдоэлемент относительно ссылки */
+
 }
 
 .header__menu-link.is-current::after {
@@ -343,18 +350,17 @@ a:hover {
   width: 100%; /* Ширина подчёркивания */
   height: 1px; /* Толщина подчёркивания */
   background-color: #000; /* Цвет */
-}
-
-.header__menu-link.is-current:hover::after {
-    background-color: gray;
+    transition-duration: var(--transition-duration);
 }
 
 .header__info{
+
+    height: var(--header-height);
     color: var(--color-dark);
     text-transform: uppercase;
     font-size: 19px;
     font-style: normal;
-    vertical-align: middle;
+    
 
 }
 
@@ -363,10 +369,11 @@ a:hover {
     display: inline-block;
     width: 26px;
     height: 26px;
-    background-image: url(icons/black-circle.svg);
-    background-size: cover;
+    border-radius: 50%;
+    background: #000;    
     margin-left: 7px;
-    transform: translateY(-1px);
+    transform: translateY(-2px);
+    transition-duration: var(--transition-duration);
 }
 
 .hero {
@@ -393,12 +400,15 @@ a:hover {
 
 .hero__title {
     font-size: clamp(30px, 4vw, 77px);
-    font-style: normal;
-    width: 633px;
-    font-weight: 500;
+    width: 32.96vw;
     line-height: 1.1; /* 110.4% */
-    text-transform: uppercase;
+}
 
+.post_title {
+    font-style: normal;
+    font-weight: 500;
+    text-transform: uppercase;
+    border-bottom: var(--border);
 }
 
 .hero__text {
@@ -436,10 +446,6 @@ a:hover {
 
 }
 
-meta:hover {
-    cursor: pointer;
-}
-
 .filter-by-category__tag.tag.is-current {
     background-color:#000;
     color: white;
@@ -451,33 +457,24 @@ meta:hover {
     padding-bottom: 41px;
 }
 
-.sections-posts__title {
-    font-size: 19px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 19px;
-    letter-spacing: -0.36px; /* 100% */
-    text-transform: uppercase;
-
-}
 
 .latest-posts__header {
     text-transform: uppercase;
 }
 
-.latest-post__header-top {
+.latest-posts__header-top {
     display: flex;
     justify-content: space-between;
     margin-bottom: 40px;
 }
 
-.latest-post__header-botton {
+.latest-posts__header-botton {
     display: flex;
     justify-content: space-between;
     margin-bottom: 40px;
 }
 
-.sections-posts__title, .latest-posts__link {
+.header-sections__title , .header-sections__link {
     font-size: 19px;
     font-style: normal;
     font-weight: 500;
@@ -486,9 +483,28 @@ meta:hover {
     text-transform: uppercase;
 
 }
-.latest-posts__link {
+
+.latest-posts__title::before {
+    content: "";
+    display: inline-block;
+    width: 17px;
+    height: 17px;
+    flex-shrink: 0;
+    border-radius: 50%;  /* Делает элемент круглым */
+    background: #000;    /* Цвет кружка */
+    margin-right: 8px;  /* Отступ справа */
+    transform: translateY(1px);
+ 
+
+
+}
+
+
+.header-sections__link {
     border-bottom: var(--border);
 }
+
+
 
 .filter-by-category, .filter_dropdown {
     color: #000;
@@ -500,17 +516,85 @@ meta:hover {
     text-transform: uppercase;
 }
 
-.dropdown__button {
-    text-transform: uppercase;
-    border: none;
-    background-color: transparent;
-    
-    padding: 0;
+.filter_dropdown {
+    display: flex;
+    align-items: center;
+    column-gap: 7px;
 }
-
 
 .dropdown__text-underline {
     border-bottom: var(--border);
+    transition-duration: var(--transition-duration);
+}
+
+
+.filter-by-category {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+}
+
+.filter-by-category__list {
+    display: flex;
+    column-gap: 4px;
+}
+
+
+
+.latest-posts__grid-container {
+    display: grid;
+    grid-template-columns: 1fr 0.5fr 0.5fr;
+    column-gap: 40px;
+}
+
+
+
+.latest-post {
+    background-color: rgba(0, 255, 255, 0.416); /* Просто для наглядности */
+    height: auto;
+    min-height: 150px; /* Минимальная высота, чтобы было видно */
+}
+
+@media (hover: hover) and (pointer: fine) {
+
+    a:hover {
+    color: gray;
+    }
+
+    .header__info:hover {
+    color: gray;
+    }
+
+    .header__menu-link.is-current:hover::after {
+    background-color: gray;
+    }
+
+    .dropdown__button:hover {
+    color: gray;
+    
+    }
+
+    .dropdown__text-underline:hover {
+        border-bottom: 1px solid gray;
+    }
+
+
+
+
+.header-sections__link:hover {
+    border-bottom: 1px solid gray;
+    }
+
+
+meta:hover {
+    cursor: pointer;
+    }
+
+.header__info:hover::after {
+    background: gray;
+}
+
+
 }
 
 @media (max-width: 1246px) {
@@ -520,11 +604,15 @@ meta:hover {
         padding-bottom: 15px;
     }
 
+    .latest-posts {
+        margin-top: 50px;
+    }
+
+    .latest-posts__header-top {
+    margin-bottom: 30px;
+    }
+
 }
-
-
-
-
 
 
 @media (max-width: 750px) {
@@ -543,9 +631,10 @@ meta:hover {
 
 
     .header__menu-list {
-        gap: 15px;
+        column-gap: 15px;
         margin: 0 5px;
     }
+
 
     .header__menu-link {
         height: 40px;
@@ -555,10 +644,19 @@ meta:hover {
     top: 70%;
     }
 
+    .header__info {
+        height: auto;
+    }
+
     .hero {
         flex-direction: column-reverse;
         align-items: center;
 
+    }
+
+    .hero__title {
+        width: 75%;
+        margin-bottom: 30px;
     }
 
     .hero__img {
@@ -583,11 +681,29 @@ meta:hover {
         text-align: center;
     }
 
+    .latest-posts {
+        margin-top: 25px;
+    }
+
+    .latest-posts__header-top {
+        margin-bottom: 10px;
+    }
+
 }
 
-@media (max-width: 400px) {
-    .hero__meta-info {
-        text-align: center;
+@media (max-width: 552px) {
+
+    .header__menu-item {
+        height: 20px;
     }
+
+  
+
+    .latest-posts__header-botton {
+
+    margin-bottom: 20px;
+    flex-direction: column;
+    row-gap: 10px;
+}
 }
 
