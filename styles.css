@@ -545,15 +545,43 @@ a:visited {
     display: grid;
     grid-template-columns: 1fr 0.5fr 0.5fr;
     column-gap: 40px;
+    
+    
 }
 
 
 
 .latest-post {
-    background-color: rgba(0, 255, 255, 0.416); /* Просто для наглядности */
     height: auto;
-    min-height: 150px; /* Минимальная высота, чтобы было видно */
+    }
+
+.latest_post__meta-info {
+    margin-top: 17px;
 }
+
+.latest-post__title {
+    margin-top: 8px;
+    width: 92%;                 
+}
+
+.first-col .latest-post__title {
+    font-size: clamp(20px, 1.93vw, 37px); 
+    line-height: 1.21;
+}
+
+.second-col .latest-post__title,.third-col .latest-post__title {
+    font-size: clamp(20px, 1.25vw, 24px);
+    line-height: 1.33;
+}
+
+.latest-post.first-col:not(:last-child) {
+    margin-bottom: 80px;
+} 
+
+.latest-post.second-col:not(:last-child), .latest-post.third-col:not(:last-child) {
+    margin-bottom: 65px;
+}
+
 
 @media (hover: hover) and (pointer: fine) {
 
@@ -611,6 +639,7 @@ meta:hover {
     .latest-posts__header-top {
     margin-bottom: 30px;
     }
+
 
 }
 
@@ -689,12 +718,19 @@ meta:hover {
         margin-bottom: 10px;
     }
 
+    .latest-posts__grid-container {
+        grid-template-columns: 1fr;
+        width: 75%;
+        margin-inline: auto;
+    }
+
 }
 
 @media (max-width: 552px) {
 
     .header__menu-item {
-        height: 20px;
+        height: 33
+        px;
     }
 
   
