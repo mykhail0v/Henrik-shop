@@ -555,12 +555,6 @@ a:visited {
     height: auto;
     }
 
-.latest-post__img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-
-}
 
 .latest_post__meta-info {
     margin-top: 17px;
@@ -589,7 +583,47 @@ a:visited {
     margin-bottom: 65px;
 }
 
+.popular-and-trending {
+    margin-top: 5.88vw;
+    display: flex;
+    column-gap: 40px;
+}
 
+.popular-posts__title {
+    margin-bottom: 37px;
+}
+
+.trending-posts__title {
+    margin-bottom: 42px;
+}
+
+.popular-posts-wraper {
+    display: flex;
+    column-gap: 40px;
+}
+
+.popular-post__img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 27px;
+}
+
+.popular-post__meta-info {
+    margin-bottom: 15px;
+}
+
+.popular-post__title {
+    margin-bottom: 58px;
+    font-size: clamp(15px, 1.92vw, 37px);
+    line-height: 1.33;
+}
+
+.trending-post__title {
+    margin-bottom: 37px;
+    font-size: clamp(15px, 1.25vw, 24px);
+}
+
+ 
 @media (hover: hover) and (pointer: fine) {
 
     a:hover {
@@ -776,10 +810,9 @@ meta:hover {
     margin-bottom: 20px;
     flex-direction: column;
     row-gap: 10px;
-}
+    }
 
-        .latest-post__img {
+    .latest-post__img {
         height: 200px;
     }
 }
-
