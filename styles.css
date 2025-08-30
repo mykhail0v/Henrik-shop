@@ -585,16 +585,30 @@ a:visited {
 
 .popular-and-trending {
     margin-top: 5.88vw;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1.5fr 0.5fr;
     column-gap: 40px;
 }
 
 .popular-posts__title {
-    margin-bottom: 37px;
+    margin-bottom: clamp(17px, 1.92vw ,37px);
 }
 
-.trending-posts__title {
-    margin-bottom: 42px;
+
+.trending-post{
+    max-width: 80%;
+    margin-bottom: clamp(15px, 1.92vw, 37px);
+}
+
+.popular-posts-title__icon, .trending-post-title__icon {
+    transform: translateY(2px);
+    
+}
+
+.trending-post__title {
+    margin-bottom: clamp(10px,2.18vw,42px);
+    font-size: clamp(15px, 1.25vw, 24px);
+    max-width: 80%;
 }
 
 .popular-posts-wraper {
@@ -605,7 +619,7 @@ a:visited {
 .popular-post__img {
     width: 100%;
     height: auto;
-    margin-bottom: 27px;
+    margin-bottom: clamp(15px,1.4vw,27px);
 }
 
 .popular-post__meta-info {
@@ -613,14 +627,9 @@ a:visited {
 }
 
 .popular-post__title {
-    margin-bottom: 58px;
+    margin-bottom: clamp(15px,3.02vw,58px);
     font-size: clamp(15px, 1.92vw, 37px);
     line-height: 1.33;
-}
-
-.trending-post__title {
-    margin-bottom: 37px;
-    font-size: clamp(15px, 1.25vw, 24px);
 }
 
  
@@ -666,6 +675,18 @@ meta:hover {
 
 }
 
+@media (max-width: 1729px) {
+
+        .popular-posts-wraper {
+        column-gap: 20px;
+    }
+
+    .popular-and-trending {
+        column-gap: 20px;
+    }
+
+}
+
 @media (max-width: 1446px) {
     .hero {
         column-gap: 10px;
@@ -692,6 +713,19 @@ meta:hover {
     .latest-post.second-col, .latest-post.third-col {
     margin-bottom: 30px;
     }
+
+    /* .popular-and-trending {
+        flex-direction: column;
+    } */
+
+    /* .trending-posts-wraper {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+    } */
+
+
+
 
 
 }
@@ -779,6 +813,8 @@ meta:hover {
 
     .latest-post__img {
         height: 300px;
+        width: 100%;
+        object-fit: cover;
     }
 
     .first-col .latest-post__title {
@@ -793,6 +829,16 @@ meta:hover {
     .latest-post.second-col, .latest-post.third-col {
         margin-bottom: 30px;
     }
+
+        .popular-posts-wraper {
+        flex-direction: column;
+    }
+
+    .popular-and-trending {
+        grid-template-columns: 2fr 1fr;
+    }
+
+
 
 
 }
@@ -814,5 +860,34 @@ meta:hover {
 
     .latest-post__img {
         height: 200px;
+    }
+
+    .popular-and-trending {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .popular-posts-wraper {
+               width: 80%;
+        margin-inline: auto; 
+    }
+
+    .trending-posts-wraper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 15px;
+        justify-content: space-between;
+        width: 80%;
+        margin-inline: auto;
+    }
+
+    .trending-post {
+        max-width: 80%;
+        
+        margin-inline: auto;
+    }
+
+    .trending-post__title{
+        max-width: 100%;
     }
 }
