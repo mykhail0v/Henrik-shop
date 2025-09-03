@@ -273,7 +273,7 @@ a:visited {
 .container {
     max-width: 1730px;
     margin: 0 auto;
-    padding: 0 20px; 
+    padding-inline:20px; 
 }
 
 .visually-hidden {
@@ -291,7 +291,7 @@ a:visited {
 
 .description {
     font-size: clamp(30px, 4vw, 77px);
-    width: 32.96vw;
+    
     line-height: 1.1; /* 110.4% */
     line-height: 1.36;
     letter-spacing: -0.44px;
@@ -388,10 +388,18 @@ a:visited {
     display: flex;
     justify-content: space-between;
     margin-top: 30px;
-    padding: 20px 0 39px 0;
+    padding-top: 20px;
+    padding-bottom: 39px;
     column-gap: clamp(30px, 14.32vw, 275px);
     border-bottom: 1px solid #000;
 }
+
+    .hero__title {
+        
+        margin-bottom: 30px;
+        
+        
+    }
 
 .hero__img {
     width: 30.72vw;
@@ -408,16 +416,33 @@ a:visited {
 
 
 
+
 .post_title {
+    position: relative;
+    
     font-style: normal;
     font-weight: 500;
     text-transform: uppercase;
-    border-bottom: var(--border);
+    
+    
+}
+
+.post_title::after {
+      content: ''; /* Обязательное свойство для псевдоэлементов */
+  position: absolute; /* Позволяет позиционировать его точно */
+  left: 0; /* Приклеиваем его к левому краю заголовка */
+  bottom: 0; /* Опускаем его на самый низ заголовка */
+  width: 100%; /* Заставляем его всегда занимать всю ширину заголовка */
+  height: 2px; /* Толщина подчёркивания */
+  background-color: #000; /* Цвет */
+
 }
 
 .hero__description {
     margin-top: auto;
-    max-width: 70%;
+    width: 75%;
+    text-align: center;
+    max-width: 100%;
     font-size: clamp(15px, 1.14vw, 22px);
 
 }
@@ -637,10 +662,27 @@ a:visited {
 }
 
 .interview {
-    width: 1920px;
+    width: 100%;
+    padding-block: 45px;
     height: 778px;
     flex-shrink: 0;
-    background-image: url(images/interview/background-image.jpg);
+    margin-inline: auto;
+    background: url(images/interview/background-image.jpg) center/cover no-repeat;
+}
+
+.inrerview__body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+}
+
+.interview__meta-info {
+    margin-bottom: 20px;
+}
+
+.interview__description {
+    margin-top: auto;
 }
 
  
@@ -696,6 +738,8 @@ meta:hover {
         column-gap: 20px;
     }
 
+
+
 }
 
 @media (max-width: 1446px) {
@@ -744,7 +788,7 @@ meta:hover {
 
 @media (max-width: 750px) {
     .container {
-    padding: 0 15px;
+    padding-inline:15px;
     }
 
     .header {
@@ -781,10 +825,7 @@ meta:hover {
 
     }
 
-    .hero__title {
-        width: 75%;
-        margin-bottom: 30px;
-    }
+
 
     .hero__img {
         width: 75%;
@@ -799,10 +840,7 @@ meta:hover {
         margin-top: 5px;
     }
 
-    .hero__title {
-        text-align: center;
-        max-width: 100%;
-    }
+
 
     .hero__text {
         text-align: center;

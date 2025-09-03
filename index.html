@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-    <header class="header">
+    <!-- <div class="container"> -->
+    <header class="header container">
         <a href="/" class="header__logo">
             <img src="icons/filled-hexagon.svg" 
             alt="Логотип Henrik" 
@@ -45,7 +45,7 @@
     <main class="content">
         <h1 class="visually-hidden">Henrik shop site</h1>
 
-    <section class="hero">
+    <section class="hero container">
         <div class="hero__content">
             <div class="hero__meta-info meta-info">
                     <time class="hero__date" datetime="09-24-2012">Sep 24, 2012</time> / <span class="hero__author">by jenny jensen</span> /
@@ -63,7 +63,7 @@
         height="786"
         loading="lazy"/>
     </section>
-        <section class="latest-posts">
+        <section class="latest-posts container">
         <header class="latest-posts__header">
             <div class="latest-posts__header-top">
                 <h2 class="latest-posts__title header-sections__title">latest posts</h2>
@@ -223,7 +223,7 @@
             </div>
         </div>
     </section>
-    <section class="popular-and-trending">
+    <section class="popular-and-trending container">
         <div class="popular-posts">
             <h2 class="popular-posts__title header-sections__title"> 
                 <svg class="popular-posts-title__icon" xmlns="http://www.w3.org/2000/svg" width="19" height="20" viewBox="0 0 19 20" fill="none">
@@ -293,21 +293,23 @@
         </div>
     </section>
     <section class="interview">
-        <div class="interview__meta-info meta-info">
-            <time class="hero__date" datetime="09-24-2013">Sep 24, 2013</time> / 
-            <a href="#" class="tag">Abacus</a>
-            <a href="#" class="tag">Golden</a>
+        <div class="inrerview__body container">
+            <div class="interview__meta-info meta-info">
+                <time class="hero__date" datetime="09-24-2013">Sep 24, 2013</time> / 
+                <a href="#" class="tag">Abacus</a>
+                <a href="#" class="tag">Golden</a>
+            </div>
+            <h2 class="interview__title post_title">
+                Jenny Slate Interview
+            </h2>
+            <p class="interview__description">
+                Tellus integer feugiat scelerisque varius. Sit amet volutpat consequat mauris nunc congue nisi. At ultrices mi tempus imperdiet nulla malesuada pellentesque. Netus et malesuada fames ac turpis egestas sed.
+            </p>
         </div>
-        <h2 class="interview__title post_title">
-            Jenny Slate Interview
-        </h2>
-        <p class="interview__description">
-            Tellus integer feugiat scelerisque varius. Sit amet volutpat consequat mauris nunc congue nisi. At ultrices mi tempus imperdiet nulla malesuada pellentesque. Netus et malesuada fames ac turpis egestas sed.
-        </p>
 
     </section>
     </main>
-    </div>
+    <!-- </div> -->
 
 </body>
 </html>
