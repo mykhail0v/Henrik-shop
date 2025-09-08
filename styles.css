@@ -394,12 +394,16 @@ a:visited {
     border-bottom: 1px solid #000;
 }
 
-    .hero__title {
-        
+.hero__title, .interview__title {
+        width: clamp(200px,33vw, 633px);
         margin-bottom: 30px;
-        
-        
-    }
+        font-size: clamp(20px, 4.01vw, 77px);
+        line-height: 1.1;
+        }
+
+.break-title {
+    display: block;
+}
 
 .hero__img {
     width: 30.72vw;
@@ -417,31 +421,21 @@ a:visited {
 
 
 
-.post_title {
+.post__title {
     position: relative;
     
     font-style: normal;
     font-weight: 500;
     text-transform: uppercase;
+    border-bottom: var(--border);
     
     
 }
 
-.post_title::after {
-      content: ''; /* Обязательное свойство для псевдоэлементов */
-  position: absolute; /* Позволяет позиционировать его точно */
-  left: 0; /* Приклеиваем его к левому краю заголовка */
-  bottom: 0; /* Опускаем его на самый низ заголовка */
-  width: 100%; /* Заставляем его всегда занимать всю ширину заголовка */
-  height: 2px; /* Толщина подчёркивания */
-  background-color: #000; /* Цвет */
-
-}
-
-.hero__description {
+.hero__description, .interview__description {
     margin-top: auto;
     width: 75%;
-    text-align: center;
+    text-align: left;
     max-width: 100%;
     font-size: clamp(15px, 1.14vw, 22px);
 
@@ -459,7 +453,6 @@ a:visited {
 
 .hero__meta-info {
     margin-bottom: 11px;
-    wrap: none;
 }
 
 .tag {
@@ -662,6 +655,9 @@ a:visited {
 }
 
 .interview {
+    
+    display: flex;
+    justify-content: flex-start;
     width: 100%;
     padding-block: 45px;
     height: 778px;
@@ -670,12 +666,13 @@ a:visited {
     background: url(images/interview/background-image.jpg) center/cover no-repeat;
 }
 
-.inrerview__body {
+.interview__container {
     display: flex;
-    flex-direction: column;
-    height: 100%;
+    width: 100%;
+    
 
 }
+
 
 .interview__meta-info {
     margin-bottom: 20px;
@@ -683,6 +680,17 @@ a:visited {
 
 .interview__description {
     margin-top: auto;
+}
+
+.interview__body {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: clamp(30px, 45.05vw, 865px);
+}
+
+.interview__title {
+    
 }
 
  
@@ -787,6 +795,13 @@ meta:hover {
 
 
 @media (max-width: 750px) {
+
+    .container-mobile {
+        width: 75%;
+        margin-inline: auto;
+    }
+
+
     .container {
     padding-inline:15px;
     }
@@ -825,7 +840,15 @@ meta:hover {
 
     }
 
+    .hero__title {
+        width:75%;
+        text-align: center;
+        
+    }
 
+    .break-title {
+        display: inline;
+    }
 
     .hero__img {
         width: 75%;
@@ -855,9 +878,7 @@ meta:hover {
     }
 
     .latest-posts__grid-container {
-        grid-template-columns: 1fr;
-        width: 75%;
-        margin-inline: auto;
+        grid-template-columns: 1fr;             /* вот эти свойства    */
     }
 
     .latest-post__img {
@@ -887,6 +908,14 @@ meta:hover {
         grid-template-columns: 2fr 1fr;
     }
 
+    .interview__body {
+        width: auto;
+    }
+
+    .interview__title {
+        
+        width: fit-content;
+    }
 
 
 
