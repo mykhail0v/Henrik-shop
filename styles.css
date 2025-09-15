@@ -689,9 +689,57 @@ a:visited {
     width: clamp(30px, 45.05vw, 865px);
 }
 
-.interview__title {
-    
+.hot-stuff {
+    padding-top: 145px;
 }
+
+.hot-stuff__header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 37px;
+}
+
+.hot-stuff__title-icon {
+    margin-top: -4px;
+}
+
+.hot-stuff__body {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+
+.hot-stuff__card {
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.hot-stuff-card__inner {
+    width: 221px;
+}
+
+
+
+.hot-stuff-card__image {
+    margin-bottom: 27px;
+}
+
+.hot-stuff-card__tag {
+    margin-bottom: 22px;
+    width: fit-content;
+}
+
+.hot-stuff-card__title {
+    width: 100%;
+    font-size: 19px;
+}
+
+
 
  
 @media (hover: hover) and (pointer: fine) {
@@ -908,9 +956,15 @@ meta:hover {
         grid-template-columns: 2fr 1fr;
     }
 
-    .interview__body {
-        width: auto;
+    .interview {
+        justify-content: center;
+        width: 100%;
     }
+
+    .interview__body {
+        margin-inline: auto;
+    }
+
 
     .interview__title {
         
