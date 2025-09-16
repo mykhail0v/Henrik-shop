@@ -740,6 +740,43 @@ a:visited {
     font-size: 19px;
 }
 
+.banner {
+    
+    margin-top: 165px;
+    margin-bottom: 58px;
+    border-top: var(--border);
+    border-bottom: var(--border);
+    padding-block: 31px;
+    overflow-x: hidden;
+    transform: translateZ(0);
+}
+
+.banner-text__wrapper {
+    display: flex;
+    font-size: 100px;
+    font-weight: 500;
+    letter-spacing: -0.36px;
+    white-space: nowrap;
+    
+    animation: marquee 10s linear infinite;
+    will-change: transform;
+    }
+
+.banner-text {
+    padding-right: 200px;
+    flex-shrink: 0;
+    }
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-99.97%);
+    }
+}
+
 
 
  
