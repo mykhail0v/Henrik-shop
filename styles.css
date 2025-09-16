@@ -735,7 +735,8 @@ a:visited {
 }
 
 .hot-stuff-card__title {
-    width: 100%;
+    width: fit-content;
+    max-width: 90%;
     font-size: 19px;
 }
 
@@ -835,9 +836,27 @@ meta:hover {
         gap: 10px;
     } */
 
+}
 
+@media (max-width: 1240px) {
 
+    .hot-stuff {
+    padding-top: 70px;
+    }
 
+    .hot-stuff__body {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    }
+
+    .hot-stuff-card__image {
+    margin-bottom: 15px;
+    }
+
+    
+    .hot-stuff-card__tag {
+    margin-bottom: 15px;
+    }
 
 }
 
@@ -971,6 +990,19 @@ meta:hover {
         width: fit-content;
     }
 
+    .hot-stuff__body {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hot-stuff__card {
+        justify-content: start;
+
+    }
+
+    .hot-stuff__card:not(:last-child) {
+        margin-bottom: 25px;
+    }
 
 
 }
@@ -1022,4 +1054,23 @@ meta:hover {
     .trending-post__title{
         max-width: 100%;
     }
+
+    .hot-stuff__body {
+    display: grid;
+    grid-template-columns: 1fr;
+    }
+
+    .hot-stuff-card__image {
+        margin-bottom: 15px;
+        width: 100%;
+    }
+
+    .hot-stuff-card__tag {
+    margin-bottom: 15px;
+    
+    }
+
+    .hot-stuff-card__inner {
+    width: 80%;
+}
 }
