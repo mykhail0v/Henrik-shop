@@ -245,6 +245,9 @@ body {
     background-color: var(--color-light);
 }
 
+svg *[fill] { fill: currentColor }
+svg *[stroke] { stroke: currentColor }
+
 button {
     all: unset;
     display: flex;
@@ -777,7 +780,11 @@ a:visited {
     }
 }
 
-
+.footer-soc1al__icon {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+}
 
  
 @media (hover: hover) and (pointer: fine) {
